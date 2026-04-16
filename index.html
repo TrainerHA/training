@@ -25,46 +25,38 @@
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       padding: 30px 20px;
-      position: relative;
+      text-align: center;
     }
 
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 20px;
+    /* TOP ROW: Logo + QR nebeneinander */
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo,
+    .qr {
       background: white;
       padding: 8px 12px;
       border-radius: 10px;
     }
 
-    .logo img {
+    .logo img,
+    .qr img {
       height: 90px;
       display: block;
     }
 
-    .qr {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  padding: 0;        /* statt 8px */
-  background: transparent; /* statt white */
-  border-radius: 0;  /* optional */
-}
-
-.qr img {
-  height: 90px;
-  display: block;
-  background: transparent;
-}
-
     header h1 {
       margin: 0;
-      text-align: center;
       font-size: 2.2em;
     }
 
     header p {
-      text-align: center;
       margin-top: 10px;
       opacity: 0.9;
     }
@@ -129,20 +121,8 @@
       color: #666;
     }
 
+    /* 📱 MOBILE */
     @media (max-width: 600px) {
-      header {
-        padding-top: 180px;
-        text-align: center;
-      }
-
-      .logo,
-      .qr {
-        position: static;
-        display: block;
-        margin: 10px auto;
-        text-align: center;
-      }
-
       .logo img,
       .qr img {
         height: 70px;
@@ -152,22 +132,27 @@
         font-size: 1.6em;
       }
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <a href="https://www.hausaktiv.at" class="logo" target="_blank">
-    <img src="https://www.hausaktiv.at/wp-content/uploads/2024/04/hausaktiv_logo_a11y.svg" alt="Logo">
-  </a>
 
-  <div class="qr">
-    <img src="qrcode_trainerha.github.io.png" alt="QR Code">
+  <div class="top-row">
+    <a href="https://www.hausaktiv.at" class="logo" target="_blank">
+      <img src="https://www.hausaktiv.at/wp-content/uploads/2024/04/hausaktiv_logo_a11y.svg" alt="Logo">
+    </a>
+
+    <div class="qr">
+      <img src="qrcode_trainerha.github.io.png" alt="QR Code">
+    </div>
   </div>
 
   <h1>Trainingsthemen</h1>
   <p>Übersicht unserer Trainingsinhalte und Zeiten</p>
+
 </header>
 
 <div class="container">
