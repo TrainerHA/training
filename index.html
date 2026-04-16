@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trainingsthemen</title>
+
   <style>
     :root {
       --primary: #6b8e23;
@@ -28,18 +29,19 @@
     }
 
     .logo {
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  background: white;
-  padding: 6px 10px;
-  border-radius: 8px;
-}
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
 
-.logo img {
-  height: 90px;
-  display: block;
-}
+    .logo img {
+      height: 90px;
+      width: auto;
+      display: block;
+    }
 
     header h1 {
       margin: 0;
@@ -118,6 +120,35 @@
       font-size: 0.9em;
       color: #666;
     }
+
+    /* 📱 MOBILE OPTIMIERUNG */
+    @media (max-width: 600px) {
+
+      header {
+        padding-top: 120px;
+        text-align: center;
+      }
+
+      .logo {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .logo img {
+        height: 70px;
+      }
+
+      header h1 {
+        font-size: 1.6em;
+      }
+
+      .card {
+        padding: 15px;
+      }
+    }
+
   </style>
 </head>
 <body>
