@@ -14,6 +14,77 @@
       --white: #ffffff;
     }
 
+/* 🖨️ DRUCKANSICHT */
+@media print {
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  header {
+    background: none !important;
+    color: black;
+    text-align: left;
+    padding: 10px 0;
+  }
+
+  .top-row {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .logo,
+  .qr {
+    background: none;
+    padding: 0;
+  }
+
+  .logo img,
+  .qr img {
+    height: 60px;
+  }
+
+  header h1 {
+    font-size: 20pt;
+    margin-top: 10px;
+  }
+
+  header p {
+    font-size: 12pt;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .grid {
+    display: block; /* statt Grid → besser für Druck */
+  }
+
+  .card {
+    page-break-inside: avoid;
+    margin-bottom: 15px;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .section {
+    margin-top: 20px;
+  }
+
+  .info-box {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+
+  footer {
+    display: none; /* optional */
+  }
+}
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
