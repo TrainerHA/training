@@ -1,9 +1,60 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trainingsthemen</title>
+
+  <!-- Google Analytics (lädt erst nach Zustimmung) -->
+  <script>
+    function loadAnalytics() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XYZ";
+      document.head.appendChild(script);
+
+      script.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-XYZ', {
+          'anonymize_ip': true
+        });
+      };
+    }
+  </script>
+
+  <!-- Cookie-Banner Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (!localStorage.getItem("cookieConsent")) {
+        var banner = document.createElement("div");
+        banner.id = "cookie-banner";
+        banner.innerHTML = `
+          Diese Website verwendet Cookies für Statistik (Google Analytics).<br>
+          <button class="accept">Akzeptieren</button>
+          <button class="decline">Ablehnen</button>
+        `;
+        document.body.appendChild(banner);
+
+        banner.querySelector(".accept").onclick = function() {
+          localStorage.setItem("cookieConsent", "accepted");
+          loadAnalytics();
+          banner.remove();
+        };
+
+        banner.querySelector(".decline").onclick = function() {
+          localStorage.setItem("cookieConsent", "declined");
+          banner.remove();
+        };
+      } else if (localStorage.getItem("cookieConsent") === "accepted") {
+        loadAnalytics();
+      }
+    });
+  </script>
 
   <style>
     :root {
@@ -28,7 +79,6 @@
       text-align: center;
     }
 
-    /* Logo + QR linksbündig */
     .top-row {
       display: flex;
       align-items: center;
@@ -67,7 +117,6 @@
       padding: 20px;
     }
 
-    /* PDF BUTTON */
     .pdf-btn {
       background: var(--primary);
       color: white;
@@ -137,7 +186,6 @@
       color: #666;
     }
 
-    /* 📱 MOBILE */
     @media (max-width: 600px) {
       .logo img,
       .qr img {
@@ -149,9 +197,7 @@
       }
     }
 
-    /* 🖨️ DRUCKANSICHT */
     @media print {
-
       body {
         background: white;
         color: black;
@@ -204,8 +250,40 @@
       }
     }
 
+    /* Cookie-Banner Style */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #2f2f2f;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    #cookie-banner button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .accept {
+      background: #6b8e23;
+      color: white;
+    }
+
+    .decline {
+      background: #999;
+      color: white;
+    }
   </style>
+
 </head>
+
 
 <body>
 
